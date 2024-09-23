@@ -31,6 +31,7 @@ Student::Student(const Student&& ob):name{ ob.name }, birth{ ob.birth }, phone{ 
         ob.country = nullptr;
         ob.school = nullptr;
         ob.number_group = 0;
+
 }
 Student& Student::operator=(Student&& ob)
 {
