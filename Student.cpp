@@ -23,6 +23,41 @@ void Student::SetTownCountrySch() {
     cout << "Input group's number:" << endl;
     cin >> number_group;
 }
+Student::Student(const Student&& ob):name{ ob.name }, birth{ ob.birth }, phone{ ob.phone }, town{ ob.town }, country{ ob.country }, school{ ob.school }, number_group{ ob.number_group } {
+        ob.name = nullptr;
+        ob.birth = nullptr;
+        ob.phone = nullptr;
+        ob.town = nullptr;
+        ob.country = nullptr;
+        ob.school = nullptr;
+        ob.number_group = 0;
+}
+Student& Student::operator=(Student&& ob)
+{
+    if (!(this == &ob)) {
+        delete name;
+        delete birth;
+        delete phone;
+        delete town;
+        delete country;
+        delete school;
+        name = ob.name;
+        birth = ob.birth;
+        phone = ob.phone;
+        town = ob.town;
+        country = ob.country;
+        school = ob.school;
+        number_group = ob.number_group;
+
+        ob.name = nullptr;
+        ob.birth = nullptr;
+        ob.phone = nullptr;
+        ob.town = nullptr;
+        ob.country = nullptr;
+        ob.school = nullptr;
+        ob.number_group = 0;
+    }
+}
 void Student::Print() {
     cout << endl << name << " : " << birth << " , " << phone << " , " << town << " , " << country << " , " << school << " , " << number_group<<endl;
 }
