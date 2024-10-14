@@ -23,7 +23,7 @@ void Student::SetTownCountrySch() {
     cout << "Input group's number:" << endl;
     cin >> number_group;
 }
-Student::Student(const Student&& ob):name{ ob.name }, birth{ ob.birth }, phone{ ob.phone }, town{ ob.town }, country{ ob.country }, school{ ob.school }, number_group{ ob.number_group } {
+Student::Student( Student&& ob):name{ ob.name }, birth{ ob.birth }, phone{ ob.phone }, town{ ob.town }, country{ ob.country }, school{ ob.school }, number_group{ ob.number_group } {
         ob.name = nullptr;
         ob.birth = nullptr;
         ob.phone = nullptr;
@@ -58,7 +58,14 @@ Student& Student::operator=(Student&& ob)
         ob.school = nullptr;
         ob.number_group = 0;
     }
+    return *this;
 }
 void Student::Print() {
     cout << endl << name << " : " << birth << " , " << phone << " , " << town << " , " << country << " , " << school << " , " << number_group<<endl;
+}
+Aspirant::Aspirant(const char* studentName, const char* studentBirth, const char* studentPhone, string tematika, string dat)
+    :Student(studentName, studentBirth, studentPhone), tema(tematika), data(dat) {}
+void Aspirant::Print() {
+    Student::Print();
+    cout << endl << "Tema: " << tema << "\nData: " << data;
 }

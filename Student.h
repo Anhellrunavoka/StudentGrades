@@ -16,7 +16,14 @@ public:
     Student(const char* studentName, const char* studentBirth, const char* studentPhone);
     void SetTownCountrySch();
     void Print();
-    Student(const Student&& ob);
+    Student( Student&& ob);
     Student& operator=(Student&& ob);
+};
+class Aspirant :public Student {
+    string tema;
+    string data;
+public:
+     Aspirant(const char* studentName, const char* studentBirth, const char* studentPhone,string tematika,string dat);
+     void Print();
 };
 
